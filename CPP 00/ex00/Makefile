@@ -1,0 +1,50 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/22 15:01:09 by joao-per          #+#    #+#              #
+#    Updated: 2023/06/22 15:01:09 by joao-per         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	= megaphone
+CC		= c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -rf
+SRC		= megaphone.cpp
+
+# Colors
+
+DEFAULT = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
+CURSIVE	= \e[33;3m
+
+
+all: $(NAME)
+
+$(NAME): 
+	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
+	@ $(CC) $(FLAGS) $(SRC) -o $(NAME)
+	@printf "$(GREEN)- Megaphone Compiled!$(DEFAULT)"
+
+clean:
+	@$(RM) $(NAME)
+	@echo "$(RED)- Megaphone Removed.$(DEFAULT)"
+
+fclean:
+	@$(RM) $(NAME)
+	@echo "$(RED)- Megaphone Removed.$(DEFAULT)"
+
+re: clean all
+
+.PHONY: all clean re
