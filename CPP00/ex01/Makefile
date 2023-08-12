@@ -15,6 +15,7 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 SRC		= main.cpp Contact.cpp PhoneBook.cpp
+OBJS	= $(SRC:.cpp=.o)
 
 # Colors
 
@@ -32,16 +33,16 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJS)
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
-	@ $(CC) $(FLAGS) $(SRC) -o $(NAME)
+	@ $(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@printf "$(GREEN)- PhoneBook Compiled!$(DEFAULT)"
 
 clean:
-	@$(RM) $(NAME)
-	@echo "$(RED)- PhoneBook Removed.$(DEFAULT)"
+	@$(RM) $(OBJS)
+	@echo "$(RED)- OBJS Removed.$(DEFAULT)"
 
-fclean:
+fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(RED)- PhoneBook Removed.$(DEFAULT)"
 
