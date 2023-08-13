@@ -1,8 +1,8 @@
-NAME	= Account
+NAME	= Zombie
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
-SRC		= tests.cpp Account.cpp
+SRC		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS	= $(SRC:.cpp=.o)
 
 # Colors
@@ -23,8 +23,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
-	@ $(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@printf "$(GREEN)- Account Compiled!$(DEFAULT)"
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@printf "$(GREEN)- Zombie Compiled!$(DEFAULT)"
 
 clean:
 	@$(RM) $(OBJS)
@@ -32,7 +32,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(RED)- Account Removed.$(DEFAULT)"
+	@echo "$(RED)- Zombie Removed.$(DEFAULT)"
 
 re: clean all
 
