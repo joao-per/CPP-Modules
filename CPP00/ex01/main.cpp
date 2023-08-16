@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/16 21:15:24 by joao-per          #+#    #+#             */
+/*   Updated: 2023/08/16 21:15:24 by joao-per         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
@@ -27,7 +39,8 @@ int main()
 
 			std::cout << "Phone Number: ";
 			bool validNumber = false;
-			while (!validNumber) {
+			while (!validNumber)
+			{
 				std::cin >> phoneNumber;
 
 				validNumber = true;

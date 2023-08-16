@@ -1,3 +1,4 @@
+# Exercise 01: Zombie Horde
 ## Objective of the Exercise
 The main aim of the exercise is to create a bunch (or horde) of Zombie objects and have each one announce itself. Once they've done their part, they should be destroyed, freeing up the memory they occupied.
 
