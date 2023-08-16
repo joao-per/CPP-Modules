@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 21:13:33 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/16 21:13:34 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/08/17 00:34:34 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 Zombie* newZombie(std::string name);
 void randomChump(std::string name);
 
-int main() {
+int main()
+{
     // Creating a zombie on the heap and announcing
     Zombie* heapZombie1 = newZombie("HeapZombie1");
     heapZombie1->announce();
