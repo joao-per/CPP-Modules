@@ -1,4 +1,10 @@
-# CPP Modules at 42 :rocket:
+<div align="center">
+
+  # CPP Modules at 42 :rocket:
+	
+<a href="https://github.com/joao-per/philosophers">![42 CPP Modules](https://github.com/joao-per/joao-per/blob/main/Badges/CPP.png)</a>
+
+</div>
 
 This repository contains my solutions and understanding of the CPP modules at 42 School. These modules explore the basics of C++ programming, object-oriented principles, containers, polymorphism, and more!
 Enjoy my fully documented adventure on this new programming language!
