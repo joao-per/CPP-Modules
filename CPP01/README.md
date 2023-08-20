@@ -1,4 +1,4 @@
-# C++ Module: Bringing Life (and Afterlife) to Code 🎉🧠🧟‍♂️
+# C++: Bringing Life (and Afterlife) to Code 🎉🧠🧟‍♂️
 In this C++ module, we dived deep into various concepts, from the eeriness of Zombies to the quirks of Harl. Each exercise provided an avenue to explore and understand different aspects of C++, from memory management to file manipulations.
 
 ## Overview of Exercises 📜
