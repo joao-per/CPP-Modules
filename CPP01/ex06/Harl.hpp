@@ -3,42 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 14:58:45 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/20 14:58:46 by joao-per         ###   ########.fr       */
+/*   Created: 2023/08/20 14:57:21 by joao-per          #+#    #+#             */
+/*   Updated: 2023/08/28 11:54:27 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include <map>
+#ifndef HARL_HPP
+# define HARL_HPP
+
+# include <iostream>
+# include <string>
 
 class Harl
 {
-	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
-		
-		enum ComplaintLevel
-		{
-			DEBUG,
-			INFO,
-			WARNING,
-			ERROR,
-			UNKNOWN
-		};
+public:
+    enum ComplaintLevel
+    {
+        UNKNOWN = 0,
+        DEBUG,
+        INFO,
+        WARNING,
+        ERROR
+    };
+    Harl() = default;
+    void filteredComplain(std::string level);
+    ComplaintLevel getComplaintLevel(const std::string& level);
 
-		std::map<std::string, ComplaintLevel> complaintsMap =
-		{
-			{"DEBUG", DEBUG},
-			{"INFO", INFO},
-			{"WARNING", WARNING},
-			{"ERROR", ERROR}
-		};
-
-	public:
-		void filteredComplain(std::string level);
+private:
+    void debug();
+    void info();
+    void warning();
+    void error();
 };
+
+#endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 14:57:46 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/20 14:57:47 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:05:15 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 Harl::Harl()
 {
-	complaintsMap["DEBUG"] = &Harl::debug;
-	complaintsMap["INFO"] = &Harl::info;
-	complaintsMap["WARNING"] = &Harl::warning;
-	complaintsMap["ERROR"] = &Harl::error;
+	complaintLevels[0] = "DEBUG";
+	complaintLevels[1] = "INFO";
+	complaintLevels[2] = "WARNING";
+	complaintLevels[3] = "ERROR";
+
+	complaintFunctions[0] = &Harl::debug; // Assign the function pointers
+	complaintFunctions[1] = &Harl::info; // to the corresponding functions
+	complaintFunctions[2] = &Harl::warning; // using the address-of operator
+	complaintFunctions[3] = &Harl::error; // and the scope resolution operator
 }
 
 void Harl::debug()
@@ -42,9 +47,13 @@ void Harl::error()
 
 void Harl::complain(std::string level)
 {
-	if (complaintsMap.find(level) != complaintsMap.end())
+	for (int i = 0; i < 4; i++) // Assuming there are 4 complaint levels
 	{
-		(this->*complaintsMap[level])();  // Call the corresponding function using the function pointer
-	} else
-		std::cout << "Invalid complaint level!" << std::endl;
+		if (complaintLevels[i] == level)
+		{
+			(this->*complaintFunctions[i])(); // Call the corresponding function using the function pointer
+			return;
+		}
+	}
+	std::cout << "Invalid complaint level!" << std::endl;
 }

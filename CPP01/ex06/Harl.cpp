@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Harl.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 14:58:00 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/20 14:58:22 by joao-per         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Harl.hpp"
 
 void Harl::debug()
@@ -36,10 +24,22 @@ void Harl::error()
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+//do function getComplaintLevel with switch case
+Harl::ComplaintLevel Harl::getComplaintLevel(const std::string& level)
+{
+	std::string complaintLevel[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == complaintLevel[i])
+			return static_cast<ComplaintLevel>(i + 1);
+	}
+	return UNKNOWN;
+}
+
+
 void Harl::filteredComplain(std::string level)
 {
-	ComplaintLevel complaint = complaintsMap.find(level) != complaintsMap.end() ? complaintsMap[level] : UNKNOWN;
-	switch (complaint)
+	switch (getComplaintLevel(level))
 	{
 		case DEBUG:
 			debug();
@@ -50,7 +50,7 @@ void Harl::filteredComplain(std::string level)
 		case ERROR:
 			error();
 			break;
-		default:
+		case UNKNOWN:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			break;
 	}
