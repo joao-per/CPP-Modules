@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 23:42:32 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/16 23:42:33 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:16:30 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-int main() {
+int main()
+{
     // 1. A string variable initialized to "HI THIS IS BRAIN".
     std::string brainString = "HI THIS IS BRAIN";
 

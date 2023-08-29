@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 12:36:55 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/20 12:38:21 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:36:56 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void replaceString(std::string& content, const std::string& s1, const std::strin
 	}
 }
 
-int main(int argc, char** argv)
+int main(int ac, char** av)
 {
-	if(argc != 4)
+	if(ac != 4)
 	{
-		std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
+		std::cerr << "Usage: " << av[0] << " <filename> <s1> <s2>" << std::endl;
 		return (1);
 	}
 
-	std::ifstream inputFile(argv[1]);
+	std::ifstream inputFile(av[1]);
 	if(!inputFile)
 	{
-		std::cerr << "Error opening file: " << argv[1] << std::endl;
+		std::cerr << "Error opening file: " << av[1] << std::endl;
 		return (1);
 	}
 
@@ -45,9 +45,9 @@ int main(int argc, char** argv)
 	inputFile.close();
 
 	std::string content = ss.str();
-	replaceString(content, argv[2], argv[3]);
+	replaceString(content, av[2], av[3]);
 
-	std::ofstream outputFile(std::string(argv[1]) + ".replace");
+	std::ofstream outputFile((std::string(av[1]) + ".replace").c_str());
 	if(!outputFile)
 	{
 		std::cerr << "Error creating the replacement file." << std::endl;

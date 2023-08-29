@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+         #
+#    By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 21:13:48 by joao-per          #+#    #+#              #
-#    Updated: 2023/08/16 21:13:49 by joao-per         ###   ########.fr        #
+#    Updated: 2023/08/29 13:45:58 by joao-per         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Zombie
+NAME	= zombieHorde
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
@@ -33,10 +33,10 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@printf "$(GREEN)- Zombie Compiled!$(DEFAULT)"
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@printf "$(GREEN)- ZombieHorde Compiled!$(DEFAULT)"
 
 clean:
 	@$(RM) $(OBJS)

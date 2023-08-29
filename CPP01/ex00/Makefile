@@ -21,9 +21,9 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@printf "$(GREEN)- Zombie Compiled!$(DEFAULT)"
 
 clean:

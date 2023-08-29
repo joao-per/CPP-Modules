@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 14:57:46 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/28 11:05:15 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:11:48 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void Harl::complain(std::string level)
 			return;
 		}
 	}
-	std::cout << "Invalid complaint level!" << std::endl;
+
 }

@@ -12,7 +12,7 @@
 
 NAME	= copy
 CC		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -std=c++98 -Wall -Wextra -Werror 
 RM		= rm -rf
 SRC		= main.cpp
 OBJS	= $(SRC:.cpp=.o)
@@ -33,9 +33,9 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
-	@ $(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@printf "$(GREEN)- Copy Compiled!$(DEFAULT)"
 
 clean:
