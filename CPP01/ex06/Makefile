@@ -6,7 +6,7 @@
 #    By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 14:40:15 by joao-per          #+#    #+#              #
-#    Updated: 2023/08/29 13:42:55 by joao-per         ###   ########.fr        #
+#    Updated: 2023/09/01 13:32:57 by joao-per         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,12 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME):
-	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
+%.o: %.cpp
+	@echo "$(CURSIVE)$(YELLOW)- Compiling $<... $(DEFAULT)"
+	@$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	@echo "$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@printf "$(GREEN)- HarlFilter Compiled!$(DEFAULT)"
 

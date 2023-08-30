@@ -21,7 +21,11 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME):
+%.o: %.cpp
+	@echo "$(CURSIVE)$(YELLOW)- Compiling $<... $(DEFAULT)"
+	@$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@printf "$(GREEN)- Brain Compiled!$(DEFAULT)"

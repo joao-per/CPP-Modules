@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 07:34:11 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/22 13:01:16 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:04:14 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Fixed
 {
 	private:
 		int fixedValue;  
-		static const int fractionalBits = 8;  
+		static const int fractionalBits = 16;  
 
 	public:
 		// Default constructor

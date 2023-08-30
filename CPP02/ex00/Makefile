@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+         #
+#    By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 14:40:15 by joao-per          #+#    #+#              #
-#    Updated: 2023/08/21 13:50:59 by joao-per         ###   ########.fr        #
+#    Updated: 2023/09/01 10:54:41 by joao-per         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,12 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
+%.o: %.cpp
+	@echo "$(CURSIVE)$(YELLOW)- Compiling $<... $(DEFAULT)"
+	@$(CC) $(FLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
+	@echo "$(MAGENTA)- Compiling $(NAME)... $(DEFAULT)"
 	@ $(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@printf "$(GREEN)- Fixed Compiled!$(DEFAULT)"
 

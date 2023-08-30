@@ -33,10 +33,13 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
+%.o: %.cpp
+	@echo "$(CURSIVE)$(YELLOW)- Compiling $<... $(DEFAULT)"
+	@$(CC) $(FLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
 	@ $(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@printf "$(GREEN)- Megaphone Compiled!$(DEFAULT)"
+	@echo "$(GREEN)- Megaphone Compiled!$(DEFAULT)\n"
 
 clean:
 	@$(RM) $(OBJS)

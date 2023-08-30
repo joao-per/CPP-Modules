@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 07:34:09 by joao-per          #+#    #+#             */
-/*   Updated: 2023/08/22 07:48:08 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/01 15:43:01 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 Fixed::Fixed() : fixedValue(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int intVal)
 {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     fixedValue = intVal << fractionalBits;  // Shift left to account for fractional bits
 }
 
 Fixed::Fixed(const float floatVal)
 {
-    std::cout << "Float constructor called" << std::endl;
+   // std::cout << "Float constructor called" << std::endl;
     fixedValue = roundf(floatVal * (1 << fractionalBits));  // Convert float to fixed-point value
 }
 
 Fixed::Fixed(const Fixed& src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+   // std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
 Fixed& Fixed::operator=(const Fixed& rhs)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    //std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs)
         this->fixedValue = rhs.fixedValue;
     return *this;
@@ -45,7 +45,7 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 float Fixed::toFloat(void) const

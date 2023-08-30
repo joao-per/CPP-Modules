@@ -6,7 +6,7 @@
 #    By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 12:36:46 by joao-per          #+#    #+#              #
-#    Updated: 2023/08/29 13:41:43 by joao-per         ###   ########.fr        #
+#    Updated: 2023/09/01 13:32:33 by joao-per         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,11 @@ CURSIVE	= \e[33;3m
 
 all: $(NAME)
 
-$(NAME):
+%.o: %.cpp
+	@echo "$(CURSIVE)$(YELLOW)- Compiling $<... $(DEFAULT)"
+	@$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 	@echo "$(CURSIVE)$(YELLOW)- Compiling $(NAME)... $(DEFAULT)"
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@printf "$(GREEN)- Violence Compiled!$(DEFAULT)"
