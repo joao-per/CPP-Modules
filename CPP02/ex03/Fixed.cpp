@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 07:34:09 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/01 15:43:01 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/01 16:00:49 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Fixed::Fixed(const int intVal)
 
 Fixed::Fixed(const float floatVal)
 {
-   // std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     fixedValue = roundf(floatVal * (1 << fractionalBits));  // Convert float to fixed-point value
 }
 
 Fixed::Fixed(const Fixed& src)
 {
-   // std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
