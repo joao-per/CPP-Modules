@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 16:24:44 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/08 13:52:25 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:02:01 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,12 @@ class ClapTrap
 		void attack(std::string const& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		void getAttackDamage();
+		int getAttackDamage();
+		int getHealth();
+		int getEnergy();
+		void setAttackDamage(int attackDamage);
+		void setHealth(int health);
+		void setEnergy(int energy);
 };
 
 #endif

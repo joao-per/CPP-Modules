@@ -7,7 +7,15 @@ ScavTrap::ScavTrap() : ClapTrap("ScavTrap")
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap Name constructor called" << std::endl;
+	setAttackDamage(20);
+	setHealth(100);
+	setEnergy(50);
+	std::cout << "ScavTrap " << name << " constructor called" << std::endl;
+	//stats
+	std::cout << "Name: " << name << std::endl;
+	std::cout << "Hit Points: " << hitPoints << std::endl;
+	std::cout << "Energy Points: " << energyPoints << std::endl;
+	std::cout << "Attack Damage: " << attackDamage << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src)
@@ -42,10 +50,4 @@ void ScavTrap::attack(std::string const& target)
 void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " << name << " has entered in Gate keeper mode." << std::endl;
-}
-
-//gethealth
-void ScavTrap::getHealth()
-{
-	std::cout << "ScavTrap " << name << " has " << hitPoints << " points of health!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 16:50:30 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/08 13:52:07 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:47:59 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,48 @@ ClapTrap::~ClapTrap()
 void ClapTrap::attack(std::string const& target)
 {
 	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+	this->energyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
+	this->hitPoints -= amount;
+	std::cout << name << " takes " << amount << " points of damage!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTrap " << name << " is repaired " << amount << " points of damage!" << std::endl;
+	this->hitPoints += amount;
+	std::cout << name << " is repaired " << amount << " points of damage!" << std::endl;
 }
 
-void ClapTrap::getAttackDamage()
+int ClapTrap::getAttackDamage()
 {
-	std::cout << "ClapTrap " << name << " has " << attackDamage << " points of damage!" << std::endl;
+	return this->attackDamage;
+}
+
+//set attack damage
+void ClapTrap::setAttackDamage(int amount)
+{
+	attackDamage = amount;
+}
+
+void ClapTrap::setHealth(int amount)
+{
+	hitPoints = amount;
+}
+
+int ClapTrap::getHealth()
+{
+	return this->hitPoints;
+}
+
+void ClapTrap::setEnergy(int amount)
+{
+	energyPoints = amount;
+}
+
+int ClapTrap::getEnergy()
+{
+	return this->energyPoints;
 }
