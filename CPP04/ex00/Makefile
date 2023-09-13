@@ -6,7 +6,7 @@
 #    By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 19:33:51 by joao-per          #+#    #+#              #
-#    Updated: 2023/09/12 19:34:11 by joao-per         ###   ########.fr        #
+#    Updated: 2023/09/15 14:38:03 by joao-per         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= Animal
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
-SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS	= $(SRC:.cpp=.o)
 
 # Colors
