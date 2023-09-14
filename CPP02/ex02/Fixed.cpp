@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 07:34:09 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/01 13:37:15 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:23:59 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,7 @@ Fixed Fixed::operator-(const Fixed& rhs) const {
     return Fixed(this->toFloat() - rhs.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed& rhs) const {
-    return Fixed(this->toFloat() * rhs.toFloat());
-}
+z
 
 Fixed Fixed::operator/(const Fixed& rhs) const {
     if (rhs.toFloat() == 0.0f) {

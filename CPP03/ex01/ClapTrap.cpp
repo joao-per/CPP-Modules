@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 16:50:30 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/12 18:47:59 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:17:22 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	this->hitPoints += amount;
 	std::cout << name << " is repaired " << amount << " points of damage!" << std::endl;
+	this->energyPoints -= 1;
 }
 
 int ClapTrap::getAttackDamage()

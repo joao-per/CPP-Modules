@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 16:50:30 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/01 16:59:17 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:29:31 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,31 @@ ClapTrap::~ClapTrap()
 void ClapTrap::attack(std::string const& target)
 {
 	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+	this->energyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
+	hitPoints -= amount;
+	if(hitPoints <= 0)
+		std::cout << "ClapTrap " << name << " is dead!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << "ClapTrap " << name << " is repaired " << amount << " points of damage!" << std::endl;
+	hitPoints += amount;
+	this->energyPoints -= 1;
 }
 
+int ClapTrap::getHealth()
+{
+	return this->hitPoints;
+}
+
+int ClapTrap::getEnergy()
+{
+	std::cout << "ClapTrap " << name << " has " << energyPoints << " energy points!" << std::endl;
+	return this->energyPoints;
+}
