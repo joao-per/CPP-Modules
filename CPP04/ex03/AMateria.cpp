@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/18 12:05:51 by joao-per          #+#    #+#             */
+/*   Updated: 2023/09/18 14:25:25 by joao-per         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AMateria.hpp"
 
 AMateria::AMateria(std::string const & type) : type(type) {}
@@ -16,6 +28,6 @@ void AMateria::use(ICharacter& target)
 
 AMateria* AMateria::clone() const
 {
-	return nullptr;
+	return NULL;
 }
 

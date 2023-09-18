@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/18 12:05:55 by joao-per          #+#    #+#             */
+/*   Updated: 2023/09/18 14:31:05 by joao-per         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 
-Character::Character(std::string const & name) : name(name)
+Character::Character(std::string const &name) : name(name)
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = nullptr;
+		this->inventory[i] = NULL;
 }
 
-Character::Character(Character const & other)
+Character::Character(Character const &other)
 {
 	*this = other;
 }
 
-Character& Character::operator=(Character const & other)
+Character &Character::operator=(Character const &other)
 {
 	if (this != &other)
 	{
@@ -23,7 +35,7 @@ Character& Character::operator=(Character const & other)
 			this->inventory[i] = other.inventory[i]->clone();
 		}
 	}
-	return *this;
+	return (*this);
 }
 
 Character::~Character()
@@ -33,34 +45,37 @@ Character::~Character()
 			delete this->inventory[i];
 }
 
-std::string const & Character::getName() const
+std::string const &Character::getName() const
 {
-	return this->name;
+	return (this->name);
 }
 
-void Character::equip(AMateria* m)
+void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
 		if (!this->inventory[i])
 		{
 			this->inventory[i] = m;
-			return;
+			return ;
 		}
 	}
+	std::cout << "Inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
-		return;
-	this->inventory[idx] = nullptr;
+		return ;
+	this->inventory[idx] = NULL;
 }
 
-void Character::use(int idx, ICharacter& target)
+void Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx > 3 || !this->inventory[idx])
-		return;
+	{
+		std::cout << "Invalid index" << std::endl;
+		return ;
+	}
 	this->inventory[idx]->use(target);
 }
-
