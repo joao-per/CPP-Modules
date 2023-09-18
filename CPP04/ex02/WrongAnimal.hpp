@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 19:16:19 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/17 19:16:20 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:06:03 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class WrongAnimal
 	virtual ~WrongAnimal();
 
 	const std::string &getType() const;
-	virtual void makeSound() const;
+	void makeSound() const;
 };
 
 #endif
