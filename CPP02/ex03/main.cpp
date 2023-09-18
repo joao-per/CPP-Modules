@@ -6,7 +6,7 @@
 /*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 16:22:43 by joao-per          #+#    #+#             */
-/*   Updated: 2023/09/01 16:22:44 by joao-per         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:49:46 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 extern bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 int main() {
-    Point a(0.0f, 0.0f);
-    Point b(1.0f, 0.0f);
-    Point c(0.5f, 1.0f);
+    Point a(-5.0f, -50.0f);
+    Point b(-51.0f, -50.0f);
+    Point c(-50.5f, -51.0f);
 
     Point inside(0.5f, 0.5f);
     Point outside(2.0f, 2.0f);
