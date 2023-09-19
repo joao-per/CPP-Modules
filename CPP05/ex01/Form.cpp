@@ -36,9 +36,14 @@ class Form::FormAlreadySignedException : public std::exception
 		}
 };
 
-Form::Form() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
-{
+Form::Form() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150) {}
 
+Form::Form(Form const &other) : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute) {}
+
+Form &Form::operator=(Form const &other)
+{
+	this->isSigned = other.isSigned;
+	return *this;
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
@@ -84,6 +89,6 @@ void Form::beSigned(Bureaucrat const &b)
 
 std::ostream& operator<<(std::ostream& os, const Form& f)
 {
-	os << f.getName() << ", form grade to sign " << f.getGradeToSign() << ", form grade to execute " << f.getGradeToExecute() << ", form is signed " << f.getIsSigned() << std::endl;
+	os << f.getName() << " grade to sign " << f.getGradeToSign() << ", form grade to execute " << f.getGradeToExecute() << ", form is signed " << f.getIsSigned() << std::endl;
 	return os;
 }

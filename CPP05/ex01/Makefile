@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Forms
+NAME	= Bureaucrat
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
-SRC		= main.cpp Bureaucrat.cpp
+SRC		= main.cpp Bureaucrat.cpp Form.cpp
 OBJS	= $(SRC:.cpp=.o)
 
 # Colors
@@ -39,8 +39,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(MAGENTA)- Compiling $(NAME)... $(DEFAULT)"
-	@$(CC) $(CFLAGS) $(SRC)
-	 -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@printf "$(GREEN)- Forms Compiled!$(DEFAULT)"
 
 clean:
