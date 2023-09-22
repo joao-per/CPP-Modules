@@ -22,11 +22,11 @@ const std::string RobotomyRequestForm::getTarget() const
 
 void RobotomyRequestForm::action() const
 {
-	std::cout << "BRRRRRRRRRRRRRRRR!!!!" << std::endl;
+	std::cout << "VRRRRRRRRRRRRRRRRRRRRRR!!!!" << std::endl;
 	std::cout << this->target << " has been robotomized successfully 50% of the time" << std::endl;
 }
 
-void RobotomyRequestForm::printErrorMessage() const
+void RobotomyRequestForm::Error() const
 {
 	std::cout << "Robotomy has failed!" <<std::endl;
 }

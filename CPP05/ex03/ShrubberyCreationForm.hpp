@@ -18,7 +18,7 @@ class ShrubberyCreationForm : public AForm
 
 		const std::string getTarget() const;
 		void action() const;
-		void printErrorMessage() const;
+		void Error() const;
 };
 
 #endif

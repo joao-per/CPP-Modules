@@ -44,7 +44,8 @@ AForm::~AForm() {}
 
 AForm::AForm(const AForm &form) : name(form.name), isSigned(form.isSigned), gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute) {}
 
-AForm &AForm::operator= (const AForm &form) {
+AForm &AForm::operator= (const AForm &form)
+{
 	if (this != &form)
 		this->isSigned = form.isSigned;
 	return *this;

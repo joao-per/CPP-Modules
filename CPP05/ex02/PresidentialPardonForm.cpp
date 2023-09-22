@@ -22,10 +22,10 @@ const std::string PresidentialPardonForm::getTarget() const
 
 void PresidentialPardonForm::action() const
 {
-	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
-void PresidentialPardonForm::printErrorMessage() const
+void PresidentialPardonForm::Error() const
 {
 	std::cout << "Presidential pardon has failed!" << std::endl;
 }

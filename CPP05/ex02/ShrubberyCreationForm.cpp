@@ -21,7 +21,7 @@ const std::string ShrubberyCreationForm::getTarget() const
 	return this->target;
 }
 
-void ShrubberyCreationForm::printErrorMessage() const
+void ShrubberyCreationForm::Error() const
 {
 	std::cout << "Shrubbery has failed!" << std::endl;
 }

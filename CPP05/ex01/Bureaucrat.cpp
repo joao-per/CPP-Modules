@@ -1,33 +1,10 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-class Bureaucrat::GradeTooHighException : public std::exception
-{
-	public:
-		const char* what() const throw()
-		{
-			return ("Grade too high");
-		}
-};
 
-class Bureaucrat::GradeTooLowException : public std::exception
-{
-	public:
-		const char* what() const throw()
-		{
-			return ("Grade too low");
-		}
-};
+Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
 
-Bureaucrat::Bureaucrat() : name("Default"), grade(150)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
-
-Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
@@ -35,6 +12,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 		throw Bureaucrat::GradeTooHighException();
 	else if (this->grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
+{
+	this->grade = other.grade;
+	return (*this);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)

@@ -54,10 +54,10 @@ AForm *Intern::makeForm(std::string formName, std::string target)
 		if (formName == formNames[i])
 		{
 			form = constructors[i](target);
-			std::cout << "Intern creates " << form->getName() << std::endl;
-			return form;
+			std::cout << "\033[34mIntern creates " << form->getName() << "\033[0m" <<std::endl;
+			return (form);
 		}
 	}
-	std::cout << "Intern could not create form" << std::endl;
+	std::cout << "\033[31mIntern could not create form\033[0m" << std::endl;
 	return (NULL);
 }

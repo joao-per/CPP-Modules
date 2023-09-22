@@ -5,12 +5,12 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
-int main() {
+int main()
+{
 	{
 		Bureaucrat b1("B1", 1);
 		Intern someRandomIntern;
 		AForm* rrf;
-
 		{
 			std::cout << std::endl;
 			rrf = someRandomIntern.makeForm("shrubbery request", "Bender");
@@ -20,7 +20,6 @@ int main() {
 			b1.executeForm(*rrf);
 			std::cout << std::endl;
 			delete rrf;
-			std::cout << std::endl;
 		}
 		{
 			std::cout << std::endl;
@@ -31,7 +30,6 @@ int main() {
 			b1.executeForm(*rrf);
 			std::cout << std::endl;
 			delete rrf;
-			std::cout << std::endl;
 		}
 		{
 			std::cout << std::endl;
@@ -42,12 +40,10 @@ int main() {
 			b1.executeForm(*rrf);
 			std::cout << std::endl;
 			delete rrf;
-			std::cout << std::endl;
 		}
 		{
-			std::cout << std::endl;
 			rrf = someRandomIntern.makeForm("invalid", "Bender");
+			// No memory allocated
 		}
 	}
-
 }

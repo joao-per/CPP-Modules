@@ -9,7 +9,7 @@ int main() {
 		Bureaucrat bureaucrat("TONI", 1);
 		std::cout << std::endl;
 		{	// SUCCESS ShrubberyCreationForm
-			std::cout << "-----------ShrubberyCreationForm SUCCESS" << std::endl;
+			std::cout << "-----------ShrubberyCreationForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
 			std::cout << std::endl;
 			ShrubberyCreationForm form("Target");
 			std::cout << std::endl;
@@ -20,7 +20,7 @@ int main() {
 		}
 		{	// SUCCESS RobotomyRequestForm
 			std::cout << std::endl;
-			std::cout << "-----------RobotomyRequestForm SUCCESS" << std::endl;
+			std::cout << "-----------RobotomyRequestForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
 			std::cout << std::endl;
 			RobotomyRequestForm form("Target");
 			std::cout << std::endl;
@@ -32,7 +32,7 @@ int main() {
 		{
 			// SUCCESS PresidentialPardonForm
 			std::cout << std::endl;
-			std::cout << "-----------PresidentialPardonForm SUCCESS" << std::endl;
+			std::cout << "-----------PresidentialPardonForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
 			std::cout << std::endl;
 			PresidentialPardonForm form("Target");
 			std::cout << std::endl;
@@ -43,9 +43,9 @@ int main() {
 		}
 		{ 	// LOW GRADE ShrubberyCreationForm
 			std::cout << std::endl;
-			std::cout << "-----------ShrubberyCreationForm FAIL" << std::endl;
+			std::cout << "ShrubberyCreationForm \033[1m\033[31mFAIL\033[0m" << std::endl;
 			std::cout << std::endl;
-			Bureaucrat bureaucrat("TONI", 150);
+			Bureaucrat bureaucrat("Marcelo Sousa", 150);
 			std::cout << std::endl;
 			ShrubberyCreationForm form("Target");
 			std::cout << std::endl;
@@ -56,9 +56,9 @@ int main() {
 		}
 		{	// LOW GRADE RobotomyRequestForm
 			std::cout << std::endl;
-			std::cout << "-----------RobotomyRequestForm FAIL" << std::endl;
+			std::cout << "RobotomyRequestForm \033[1m\033[31mFAIL\033[0m" << std::endl;
 			std::cout << std::endl;
-			Bureaucrat bureaucrat("TONI", 150);
+			Bureaucrat bureaucrat("Antonio Costa", 150);
 			std::cout << std::endl;
 			RobotomyRequestForm form("Target");
 			std::cout << std::endl;
@@ -69,9 +69,9 @@ int main() {
 		}
 		{	// LOW GRADE PresidentialPardonForm
 			std::cout << std::endl;
-			std::cout << "-----------PresidentialPardonForm FAIL" << std::endl;
+			std::cout << "PresidentialPardonForm \033[1m\033[31mFAIL\033[0m" << std::endl;
 			std::cout << std::endl;
-			Bureaucrat bureaucrat("TONI", 150);
+			Bureaucrat bureaucrat("Cavaco Silva", 150);
 			std::cout << std::endl;
 			PresidentialPardonForm form("Target");
 			std::cout << std::endl;
@@ -82,7 +82,7 @@ int main() {
 		}
 		{	// LOW GRADE PresidentialPardonForm NOT SIGNED
 			std::cout << std::endl;
-			std::cout << "-----------PresidentialPardonForm FAIL NO SIGN" << std::endl;
+			std::cout << "PresidentialPardonForm \033[1m\033[35mFAIL NO SIGN\033[0m" << std::endl;
 			std::cout << std::endl;
 			Bureaucrat bureaucrat("TONI", 1);
 			std::cout << std::endl;
