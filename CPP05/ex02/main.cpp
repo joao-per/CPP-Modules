@@ -4,12 +4,13 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main() {
+int main()
+{
 	{
 		Bureaucrat bureaucrat("TONI", 1);
 		std::cout << std::endl;
 		{	// SUCCESS ShrubberyCreationForm
-			std::cout << "-----------ShrubberyCreationForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
+			std::cout << "ShrubberyCreationForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
 			std::cout << std::endl;
 			ShrubberyCreationForm form("Target");
 			std::cout << std::endl;
@@ -20,7 +21,7 @@ int main() {
 		}
 		{	// SUCCESS RobotomyRequestForm
 			std::cout << std::endl;
-			std::cout << "-----------RobotomyRequestForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
+			std::cout << "RobotomyRequestForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
 			std::cout << std::endl;
 			RobotomyRequestForm form("Target");
 			std::cout << std::endl;
@@ -32,7 +33,7 @@ int main() {
 		{
 			// SUCCESS PresidentialPardonForm
 			std::cout << std::endl;
-			std::cout << "-----------PresidentialPardonForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
+			std::cout << "PresidentialPardonForm \033[1m\033[32mSUCCESS\033[0m" << std::endl;
 			std::cout << std::endl;
 			PresidentialPardonForm form("Target");
 			std::cout << std::endl;
@@ -92,5 +93,5 @@ int main() {
 			std::cout << std::endl;
 		}
 	}
-	return 0;
+	return (0);
 }
