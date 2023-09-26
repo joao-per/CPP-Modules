@@ -14,30 +14,10 @@ private:
 	const int gradeToExecute;
 
 public:
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			const char *what() const throw()
-			{
-				return "Grade is too high";
-			}
-	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			const char *what() const throw()
-			{
-				return "Grade is too low";
-			}
-	};
-	class FormNotSignedException : public std::exception
-	{
-		public:
-			const char *what() const throw()
-			{
-				return "Form is not signed";
-			}
-	};
+	class GradeTooHighException;
+	class GradeTooLowException;
+	class FormNotSignedException;
+	class FormAlreadySignedException;
 
 	AForm();
 	AForm(std::string name, bool isSigned, int gradeToSign, int gradeToExecute);

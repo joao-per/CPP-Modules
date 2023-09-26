@@ -12,22 +12,8 @@ private:
 	int grade;
 
 public:
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			const char *what() const throw()
-			{
-				return "Grade is too high";
-			}
-	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			const char *what() const throw()
-			{
-				return "Grade is too low";
-			}
-	};
+	class GradeTooHighException;
+	class GradeTooLowException;
 	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	~Bureaucrat();

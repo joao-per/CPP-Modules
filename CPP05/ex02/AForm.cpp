@@ -1,5 +1,41 @@
 #include "AForm.hpp"
 
+class Form::GradeTooHighException : public std::exception
+{
+	public:
+		virtual const char* what() const throw()
+		{
+			return "Grade too high";
+		}
+};
+
+class AForm::GradeTooLowException : public std::exception
+{
+	public:
+		virtual const char* what() const throw()
+		{
+			return "Grade too low";
+		}
+};
+
+class AForm::FormNotSignedException : public std::exception
+{
+	public:
+		virtual const char* what() const throw()
+		{
+			return "Form not signed";
+		}
+};
+
+class AForm::FormAlreadySignedException : public std::exception
+{
+	public:
+		virtual const char* what() const throw()
+		{
+			return "Form already signed";
+		}
+};
+
 AForm::AForm() : name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150) {}
 
 AForm::AForm(std::string name, bool isSigned, int gradeToSign, int gradeToExecute) : name(name),\
