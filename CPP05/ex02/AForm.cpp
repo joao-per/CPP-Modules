@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-class Form::GradeTooHighException : public std::exception
+class AForm::GradeTooHighException : public std::exception
 {
 	public:
 		virtual const char* what() const throw()
