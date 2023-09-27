@@ -20,6 +20,12 @@ const std::string PresidentialPardonForm::getTarget() const
 	return this->target;
 }
 
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	AForm::execute(executor);
+	action();
+}
+
 void PresidentialPardonForm::action() const
 {
 	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;

@@ -26,6 +26,12 @@ void ShrubberyCreationForm::Error() const
 	std::cout << "Shrubbery has failed!" << std::endl;
 }
 
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	AForm::execute(executor);
+	action();
+}
+
 void ShrubberyCreationForm::action() const
 {
 	std::ofstream file;

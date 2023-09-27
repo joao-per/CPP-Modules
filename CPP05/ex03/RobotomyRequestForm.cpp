@@ -20,6 +20,12 @@ const std::string RobotomyRequestForm::getTarget() const
 	return this->target;
 }
 
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
+{
+	AForm::execute(executor);
+	action();
+}
+
 void RobotomyRequestForm::action() const
 {
 	std::cout << "VRRRRRRRRRRRRRRRRRRRRRR!!!!" << std::endl;
