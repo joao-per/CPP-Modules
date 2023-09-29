@@ -3,6 +3,7 @@
 
 class Base {
 public:
+    class InvalidTypeException;
     virtual ~Base() {}
 };
 

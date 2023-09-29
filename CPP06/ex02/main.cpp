@@ -6,6 +6,15 @@
 #include "B.hpp"
 #include "C.hpp"
 
+class Base::InvalidTypeException : public std::exception
+{
+    public:
+        const char* what() const throw()
+        {
+            return ("Invalid type");
+        }
+};
+
 Base* generate(void)
 {
     int randomNum = rand() % 3;
@@ -31,13 +40,32 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    if (dynamic_cast<A*>(&p))
+    try
+    {
+        (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
-    else if (dynamic_cast<B*>(&p))
-        std::cout << "B" << std::endl;
-    else if (dynamic_cast<C*>(&p))
-        std::cout << "C" << std::endl;
-}
+    }
+    catch(const std::exception& e)
+    {
+        try
+        {
+            (void)dynamic_cast<B&>(p);
+            std::cout << "B" << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            try
+            {
+                (void)dynamic_cast<C&>(p);
+                std::cout << "C" << std::endl;
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+        }
+    }
+    }
 
 int main()
 {
