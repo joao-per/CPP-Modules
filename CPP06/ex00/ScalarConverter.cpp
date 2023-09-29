@@ -1,15 +1,73 @@
 #include "ScalarConverter.hpp"
+#include <iomanip>
+#include <iostream>
 
 void ScalarConverter::convert(const std::string &input)
 {
-	std::stringstream ss(input);
-	double val;
-	ss >> val;
-	
-	toChar(val);
-	toInt(val);
-	toFloat(val);
-	toDouble(val);
+    if (input == "inf" || input == "inff")
+    {
+        processValues(std::numeric_limits<double>::infinity());
+        return;
+    }
+    if (input == "-inf" || input == "-inff")
+    {
+        processValues(-std::numeric_limits<double>::infinity());
+        return;
+    }
+    if (input == "nan" || input == "nanf")
+    {
+        processValues(std::numeric_limits<double>::quiet_NaN());
+        return;
+    }
+    if (input.length() == 1 && isprint(input[0]) && !isdigit(input[0]))
+    {
+        processValues(static_cast<double>(input[0]));
+        return;
+    }
+    
+    if (input[input.size() - 1] == 'f')
+    {
+        std::string floatStr = input.substr(0, input.size() - 1); // remove the 'f'
+        std::stringstream ssFloat(floatStr);
+        float floatVal;
+        if (ssFloat >> floatVal && ssFloat.eof())
+        {
+            processValues(static_cast<double>(floatVal));
+            return;
+        }
+    }
+
+    // Try to convert to int
+    std::stringstream ssInt(input);
+    int intVal;
+    if (ssInt >> intVal && ssInt.eof())
+    {
+        processValues(static_cast<double>(intVal));
+        return;
+    }
+
+    // Try to convert to double
+    std::stringstream ssDouble(input);
+    double doubleVal;
+    if (ssDouble >> doubleVal && ssDouble.eof())
+    {
+        processValues(doubleVal);
+        return;
+    }
+
+    // If none of the above, then it's invalid input
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: nanf" << std::endl;
+    std::cout << "double: nan" << std::endl;
+}
+
+void ScalarConverter::processValues(double value)
+{
+    toChar(value);
+    toInt(value);
+    toFloat(value);
+    toDouble(value);
 }
 
 void ScalarConverter::toChar(double value)
@@ -38,10 +96,20 @@ void ScalarConverter::toInt(double value)
 
 void ScalarConverter::toFloat(double value)
 {
-	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
+    if (std::isnan(value))
+    {
+        std::cout << "float: nanf" << std::endl;
+        return;
+    }
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
 }
 
 void ScalarConverter::toDouble(double value)
 {
-	std::cout << "double: " << value << std::endl;
+    if (std::isnan(value))
+    {
+        std::cout << "double: nan" << std::endl;
+        return;
+    }
+    std::cout << "double: " << value << std::endl;
 }

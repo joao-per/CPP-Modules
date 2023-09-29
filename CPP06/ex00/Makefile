@@ -14,7 +14,7 @@ NAME	= ScalarConverter
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
-SRC		= main.cpp Serialization.cpp
+SRC		= main.cpp ScalarConverter.cpp
 OBJS	= $(SRC:.cpp=.o)
 
 # Colors

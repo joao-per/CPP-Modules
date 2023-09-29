@@ -12,6 +12,7 @@ class ScalarConverter
 	public:
 		static void convert(const std::string &input);
 	private:
+		static void	processValues(double value);
 		static void toChar(double value);
 		static void toInt(double value);
 		static void toFloat(double value);
