@@ -1,6 +1,6 @@
-#include "Serialization.hpp"
+#include "ScalarConverter.hpp"
 
-void Serialization::convert(const std::string &input)
+void ScalarConverter::convert(const std::string &input)
 {
 	std::stringstream ss(input);
 	double val;
@@ -12,7 +12,7 @@ void Serialization::convert(const std::string &input)
 	toDouble(val);
 }
 
-void Serialization::toChar(double value)
+void ScalarConverter::toChar(double value)
 {
 	if (std::isnan(value) || std::isinf(value) || value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max())
 	{
@@ -26,7 +26,7 @@ void Serialization::toChar(double value)
 		std::cout << "char: Non displayable" << std::endl;
 }
 
-void Serialization::toInt(double value)
+void ScalarConverter::toInt(double value)
 {
 	if (std::isnan(value) || std::isinf(value) || value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
 	{
@@ -36,12 +36,12 @@ void Serialization::toInt(double value)
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
 }
 
-void Serialization::toFloat(double value)
+void ScalarConverter::toFloat(double value)
 {
 	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
 }
 
-void Serialization::toDouble(double value)
+void ScalarConverter::toDouble(double value)
 {
 	std::cout << "double: " << value << std::endl;
 }

@@ -15,5 +15,5 @@ int main()
 	std::cout << "dest->id: " << dest->id << std::endl;
 	std::cout << "dest->value: " << dest->value << std::endl;
 
-	std::cout << "\033[33mComparing Address value. \033[0m1 \033[32mequal, \033[0m0 \033[31mdifferent. \033[36mResult:\033[1m\033[38;5;208m" << (&src == dest) << std::endl;
+	std::cout << "\033[33mComparing values. \033[0m1 \033[32mequal, \033[0m0 \033[31mdifferent. \033[36mResult:\033[1m\033[38;5;208m" << (&src == dest) << std::endl;
 }

@@ -1,5 +1,5 @@
-#ifndef SERIALIZATION_HPP
-# define SERIALIZATION_HPP
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
 #include <iostream>
 #include <string>
@@ -7,7 +7,7 @@
 #include <limits>
 #include <sstream>
 
-class Serialization
+class ScalarConverter
 {
 	public:
 		static void convert(const std::string &input);
