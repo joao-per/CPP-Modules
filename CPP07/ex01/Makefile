@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Whatever
+NAME	= iter
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo "$(MAGENTA)- Compiling $(NAME)... $(DEFAULT)"
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	@printf "$(GREEN)- Whatever Compiled!$(DEFAULT)"
+	@printf "$(GREEN)- iter Compiled!$(DEFAULT)"
 
 clean:
 	@$(RM) $(OBJS)
@@ -48,7 +48,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(RED)- Whatever Removed.$(DEFAULT)"
+	@echo "$(RED)- iter Removed.$(DEFAULT)"
 
 re: clean all
 

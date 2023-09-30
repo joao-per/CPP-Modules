@@ -1,13 +1,11 @@
 #include <iostream>
 #include "iter.hpp"
 
-// Function to print an integer
 void printInt(int const &i)
 {
 	std::cout << i << std::endl;
 }
 
-// Function to print a string
 void printString(std::string const &s)
 {
 	std::cout << s << std::endl;
