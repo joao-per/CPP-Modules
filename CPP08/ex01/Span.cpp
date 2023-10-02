@@ -1,18 +1,14 @@
 #include "Span.hpp"
 #include <algorithm>
 
-Span::Span(unsigned int n) : _n(n)
-{
-}
+Span::Span(unsigned int n) : _n(n) {}
 
 Span::Span(const Span &copy)
 {
 	*this = copy;
 }
 
-Span::~Span()
-{
-}
+Span::~Span() {}
 
 Span &Span::operator=(const Span &copy)
 {
