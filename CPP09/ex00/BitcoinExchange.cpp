@@ -31,8 +31,6 @@ void BitcoinExchange::loadBitcoinDB(const std::string& filePath)
 	}
 }
 
-
-
 int BitcoinExchange::convertDateToInt(const std::string& dateStr) const
 {
 
@@ -49,8 +47,8 @@ int BitcoinExchange::convertDateToInt(const std::string& dateStr) const
 float BitcoinExchange::getClosestValue(const std::string& date) const
 {
 	int dateInt = convertDateToInt(date);
-	std::cout << "date: " << date << std::endl;
-	std::cout << "dateInt: " << dateInt << std::endl;
+	/* std::cout << "date: " << date << std::endl;
+	std::cout << "dateInt: " << dateInt << std::endl; */
 	std::map<int, float>::const_iterator it = btcDB.lower_bound(dateInt);
 
 	// Ensure the iterator is not at the beginning to avoid decrementing an iterator pointing to the beginning of the map

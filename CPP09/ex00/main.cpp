@@ -1,31 +1,52 @@
 #include "BitcoinExchange.hpp"  
 
-int main()
+int main(int argc, char* argv[])
 {
-	try
-	{
-		BitcoinExchange btcExchange("data.csv");
+    try
+    {
+        // Check if filename argument is provided
+        if (argc != 2)
+        {
+            std::cerr << "Error: incorrect number of arguments." << std::endl;
+            return 1;
+        }
 
-		std::string inputLine;
-		while (std::getline(std::cin, inputLine))
-		{
-			try
-			{
-				std::pair<std::string, float> parsedInput = btcExchange.parseInputLine(inputLine);
+        // Instantiate BitcoinExchange with given data file
+        BitcoinExchange btcExchange(argv[1]);
+
+        // Open input file specified in command-line arguments
+        std::ifstream inputFile(argv[1]);
+        if (!inputFile.is_open())
+        {
+            std::cerr << "Error: could not open file." << std::endl;
+            return 1;
+        }
+
+        std::string inputLine;
+        while (std::getline(inputFile, inputLine))
+        {
+            try
+            {
+                // Parse the input line to extract date and value
+                std::pair<std::string, float> parsedInput = btcExchange.parseInputLine(inputLine);
                 std::string date = parsedInput.first;
                 float value = parsedInput.second;
-				float closestBtcValue = btcExchange.getClosestValue(date);
-				std::cout << date << " => " << value << " = " << (value * closestBtcValue) << std::endl;
-			}
-			catch (const std::exception& ex)
-			{
-				std::cerr << "Error: " << ex.what() << std::endl;
-			}
-		}
-	}
-	catch (const std::exception& ex)
-	{
-		std::cerr << "Error: " << ex.what() << std::endl;
-	}
-	return (0);
+
+                // Get the closest BTC value and print the result
+                float closestBtcValue = btcExchange.getClosestValue(date);
+                std::cout << date << " => " << value << " = " << (value * closestBtcValue) << std::endl;
+            }
+            catch (const std::exception& ex)
+            {
+                std::cerr << "Error: " << ex.what() << std::endl;
+            }
+        }
+
+        inputFile.close(); // Ensure to close the input file when done
+    }
+    catch (const std::exception& ex)
+    {
+        std::cerr << "Error: " << ex.what() << std::endl;
+    }
+    return 0;
 }
