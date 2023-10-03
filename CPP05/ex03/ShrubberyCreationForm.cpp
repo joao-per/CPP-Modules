@@ -31,7 +31,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	AForm::execute(executor);
 	action();
 }
-gi
+
 void ShrubberyCreationForm::action() const
 {
 	std::ofstream file;
