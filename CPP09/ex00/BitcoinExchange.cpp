@@ -40,6 +40,7 @@ int BitcoinExchange::convertDateToInt(const std::string& dateStr) const
 	return std::atoi(dateIntStr.c_str());
 }
 
+// Function to get the closest BTC value to a given date
 float BitcoinExchange::getClosestValue(const std::string& date) const
 {
 	std::map<std::string, float>::const_iterator it = exchangeRates.lower_bound(date);
@@ -53,7 +54,8 @@ float BitcoinExchange::getClosestValue(const std::string& date) const
 }
 
 // Function to parse an input line into date and value
-std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string& line) {
+std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string& line)
+{
 	std::istringstream ss(line);
 	std::string date;
 	float value;
@@ -71,7 +73,6 @@ std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string&
 void BitcoinExchange::loadBitcoinDB(const std::string& dbPath)
 {
 	std::ifstream dataFile(dbPath.c_str());
-
 	if (!dataFile.is_open())
 		throw std::runtime_error("Error: could not open file.");
 
