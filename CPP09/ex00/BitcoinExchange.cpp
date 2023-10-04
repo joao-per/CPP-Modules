@@ -1,68 +1,41 @@
 #include "BitcoinExchange.hpp"
+#include <fstream>
+#include <sstream>
+#include <stdexcept>
 
+// Constructor that accepts a database file path
+BitcoinExchange::BitcoinExchange(const std::string& dbPath) {
+	loadBitcoinDB(dbPath);  // Load the Bitcoin exchange rate database
+}
 
-BitcoinExchange::BitcoinExchange() {}
-
+// Destructor
 BitcoinExchange::~BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const std::string& dbPath)
-{
-	loadBitcoinDB(dbPath);
-}
-
-void BitcoinExchange::loadBitcoinDB(const std::string& filePath)
-{
-	std::ifstream file(filePath.c_str());
-	if (!file.is_open())
-		throw std::runtime_error("Error: could not open file.");
-
-	std::string line;
-	while (std::getline(file, line))
-	{
-		std::istringstream ss(line);
-		std::string date;
-		float value;
-
-		std::getline(ss, date, '|');
-		ss >> value;
-
-		int dateInt = convertDateToInt(date);
-		btcDB[dateInt] = value;
-	}
-}
-
+// Function to convert a date to an integer
 int BitcoinExchange::convertDateToInt(const std::string& dateStr) const
 {
-
 	std::string year = dateStr.substr(0, 4);
 	std::string month = dateStr.substr(5, 2);
 	std::string day = dateStr.substr(8, 2);
 
 	std::string dateIntStr = year + month + day;
-	int dateInt = std::atoi(dateIntStr.c_str());
-	return (dateInt);
-	
+	return std::atoi(dateIntStr.c_str());
 }
 
 float BitcoinExchange::getClosestValue(const std::string& date) const
 {
-	int dateInt = convertDateToInt(date);
-	/* std::cout << "date: " << date << std::endl;
-	std::cout << "dateInt: " << dateInt << std::endl; */
-	std::map<int, float>::const_iterator it = btcDB.lower_bound(dateInt);
-
-	// Ensure the iterator is not at the beginning to avoid decrementing an iterator pointing to the beginning of the map
-	if (it != btcDB.begin())
+	std::map<std::string, float>::const_iterator it = exchangeRates.lower_bound(date);
+	if (it == exchangeRates.end() || it->first != date)
 	{
-		--it;  // Move to closest lower date
-		return it->second;
+		if (it == exchangeRates.begin())
+			throw std::runtime_error("No previous date available in the database.");
+		--it;  
 	}
-	else
-		throw std::runtime_error("Error: No previous date available in the database.");
+	return it->second;
 }
 
-std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string& line)
-{
+// Function to parse an input line into date and value
+std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string& line) {
 	std::istringstream ss(line);
 	std::string date;
 	float value;
@@ -70,7 +43,35 @@ std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string&
 	std::getline(ss, date, '|');
 	ss >> value;
 
-	//additional validation and error handling here if necessary
-	
+	if (value < 0 || value > 1000)
+		throw std::runtime_error("Value out of range.");
+
 	return std::make_pair(date, value);
+}
+
+// Function to load and parse the Bitcoin exchange rate database
+void BitcoinExchange::loadBitcoinDB(const std::string& dbPath)
+{
+	std::ifstream dataFile(dbPath.c_str());
+
+	if (!dataFile.is_open())
+		throw std::runtime_error("Error: could not open file.");
+
+	std::string line;
+	std::getline(dataFile, line);  // Ignore header
+
+	while (std::getline(dataFile, line))
+	{
+		std::stringstream lineStream(line);
+		std::string date, rateStr;
+		std::getline(lineStream, date, ',');
+		std::getline(lineStream, rateStr);
+
+		std::stringstream rateStream(rateStr);
+		float rate;
+		rateStream >> rate;
+
+		exchangeRates[date] = rate;
+	}
+	dataFile.close();
 }

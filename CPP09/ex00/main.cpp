@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
         }
 
         // Instantiate BitcoinExchange with given data file
-        BitcoinExchange btcExchange(argv[1]);
+        BitcoinExchange btcExchange("data.csv");
 
         // Open input file specified in command-line arguments
         std::ifstream inputFile(argv[1]);
