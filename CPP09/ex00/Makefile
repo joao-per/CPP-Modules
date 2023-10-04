@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo "$(MAGENTA)- Compiling $(NAME)... $(DEFAULT)"
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	@printf "$(GREEN)- MutantStack Compiled!$(DEFAULT)"
+	@printf "$(GREEN)- btc Compiled!$(DEFAULT)"
 
 clean:
 	@$(RM) $(OBJS)
@@ -48,7 +48,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(RED)- MutantStack Removed.$(DEFAULT)"
+	@echo "$(RED)- btc Removed.$(DEFAULT)"
 
 re: clean all
 
