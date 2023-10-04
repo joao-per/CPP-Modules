@@ -14,9 +14,10 @@ class BitcoinExchange
 {
 	public:
 		BitcoinExchange();
-		~BitcoinExchange();
 		BitcoinExchange(const std::string& dbPath);
-		std::map<std::string, float> loadDatabase();
+		BitcoinExchange(const BitcoinExchange& other);
+		BitcoinExchange& operator=(const BitcoinExchange& other);
+		~BitcoinExchange();
 		float getClosestValue(const std::string& date) const;
 		static std::pair<std::string, float> parseInputLine(const std::string& line);
 		

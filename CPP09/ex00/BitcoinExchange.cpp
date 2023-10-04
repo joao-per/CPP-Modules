@@ -3,13 +3,31 @@
 #include <sstream>
 #include <stdexcept>
 
+// Default constructor
+BitcoinExchange::BitcoinExchange() {}
+
 // Constructor that accepts a database file path
-BitcoinExchange::BitcoinExchange(const std::string& dbPath) {
+BitcoinExchange::BitcoinExchange(const std::string& dbPath)
+{
 	loadBitcoinDB(dbPath);  // Load the Bitcoin exchange rate database
 }
 
 // Destructor
 BitcoinExchange::~BitcoinExchange() {}
+
+// Copy Constructor
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+{
+	*this = other;
+}
+
+// Assignement operator
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
+{
+	if (this != &other)
+		this->exchangeRates = other.exchangeRates;
+	return *this;
+}
 
 // Function to convert a date to an integer
 int BitcoinExchange::convertDateToInt(const std::string& dateStr) const
