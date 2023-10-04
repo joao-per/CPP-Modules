@@ -6,6 +6,22 @@
 #include <stdexcept>
 #include <stdlib.h>
 
+RPN::RPN() {}
+
+RPN::~RPN() {}
+
+RPN::RPN(const RPN& other)
+{
+	*this = other;
+}
+
+RPN& RPN::operator=(const RPN& other)
+{
+	if (this != &other)
+		this->operands = other.operands;
+	return (*this);
+}
+
 int RPN::performOperation(int a, int b, char op)
 {
 	switch (op)
@@ -33,10 +49,7 @@ int RPN::calculateRPN(const std::string& expression)
 	while (iss >> token)
 	{
 		if (isdigit(token[0]))
-		{
 			operands.push(std::atoi(token.c_str()));
-			//std::cout << "Pushed " << token << std::endl;
-		}
 		else if (token.size() == 1 && std::string("+-*/").find(token[0]) != std::string::npos)
 		{
 			if (operands.size() < 2)

@@ -11,6 +11,8 @@ class RPN
 	public:
 		RPN() {}
 		~RPN() {}
+		RPN(const RPN& other);
+		RPN& operator=(const RPN& other);
 		int calculateRPN(const std::string& expression);
 	private:
 		int performOperation(int a, int b, char op);
