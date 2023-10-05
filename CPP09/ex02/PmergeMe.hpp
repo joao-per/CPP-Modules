@@ -7,6 +7,9 @@
 #include <cstdlib>
 #include <algorithm> // for sort
 #include <ctime> // for clock
+#include <cstring> // for strcmp
+#include <climits> // for INT_MAX
+#include <cerrno> // for errno
 
 class PmergeMe
 {
