@@ -35,7 +35,14 @@ int BitcoinExchange::convertDateToInt(const std::string& dateStr) const
 	std::string year = dateStr.substr(0, 4);
 	std::string month = dateStr.substr(5, 2);
 	std::string day = dateStr.substr(8, 2);
-
+	if((dateStr[5] == '1' && dateStr[6] >= '3') || 
+		dateStr[5] >= '2' || dateStr[4] != '-' || 
+		dateStr[7] != '-' || dateStr[10] >= '0' ||
+		(dateStr[5] == '0' && dateStr[6] == '0') ||
+		(dateStr[8] == '0' && dateStr[9] == '0') ||
+		(dateStr[8] >= '3' && dateStr[9] >= '2'))
+		throw std::runtime_error("Invalid date format.");  // Throw an exception if the date format is invalid
+	
 	std::string dateIntStr = year + month + day;
 	return std::atoi(dateIntStr.c_str());
 }
@@ -65,7 +72,6 @@ std::pair<std::string, float> BitcoinExchange::parseInputLine(const std::string&
 
 	if (value < 0 || value > 1000)
 		throw std::runtime_error("Value out of range.");
-
 	return std::make_pair(date, value);
 }
 
@@ -79,6 +85,8 @@ void BitcoinExchange::loadBitcoinDB(const std::string& dbPath)
 	std::string line;
 	std::getline(dataFile, line);  // Ignore header
 
+	/* The code snippet is reading each line from the `dataFile` and parsing it to extract the date and
+	rate values. */
 	while (std::getline(dataFile, line))
 	{
 		std::stringstream lineStream(line);

@@ -20,11 +20,11 @@ class BitcoinExchange
 		~BitcoinExchange();
 		float getClosestValue(const std::string& date) const;
 		static std::pair<std::string, float> parseInputLine(const std::string& line);
+		int convertDateToInt(const std::string& dateStr) const;
 		
 	private:
 		std::map<int, float> btcDB;
 
-		int convertDateToInt(const std::string& dateStr) const;
 		void loadBitcoinDB(const std::string& filePath);
 		std::map<std::string, float> exchangeRates;
 };

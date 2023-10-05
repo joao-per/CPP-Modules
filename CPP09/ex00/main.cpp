@@ -30,6 +30,7 @@ int main(int argc, char* argv[])
 				// Parse the input line to extract date and value
 				std::pair<std::string, float> parsedInput = btcExchange.parseInputLine(inputLine);
 				std::string date = parsedInput.first;
+				btcExchange.convertDateToInt(date);
 				float value = parsedInput.second;
 
 				// Get the closest BTC value and print the result
