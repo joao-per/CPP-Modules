@@ -14,8 +14,10 @@
 class PmergeMe
 {
 	public:
+		PmergeMe();
 		PmergeMe(const PmergeMe& other);
 		PmergeMe(std::vector<int>& v, std::list<int>& l);
+		~PmergeMe();
 		PmergeMe& operator=(const PmergeMe& other);
 		void sortAndDisplayResult();
 	private:

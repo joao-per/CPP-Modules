@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-
+PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe& other)
 {
@@ -12,6 +12,8 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 	(void)other;
 	return *this;
 }
+
+PmergeMe::~PmergeMe() {}
 
 PmergeMe::PmergeMe(std::vector<int>& v, std::list<int>& l) : vec(v), lst(l) {}
 
@@ -64,7 +66,7 @@ void PmergeMe::sortAndDisplayResult()
 	clock_t start_lst = clock();
 	mergeInsertSort(lst);
 	clock_t end_lst = clock();
-	double lstTime = static_cast<double>(end_lst - start_lst) / CLOCKS_PER_SEC;
+	double lstTime = static_cast<double>(end_lst - start_lst) / CLOCKS_PER_SEC * 1000000.0;
 
 	// Display after list sorting
 	std::cout << "After (List): ";
@@ -73,7 +75,7 @@ void PmergeMe::sortAndDisplayResult()
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
-	std::cout << "Time to process with std::list: " << lstTime << " seconds" << std::endl;
+	std::cout << "Time to process with std::list: " << lstTime << " micro seconds" << std::endl;
 
 	// Display before vector sorting
 	std::cout << "Before (Vector): ";
@@ -87,7 +89,7 @@ void PmergeMe::sortAndDisplayResult()
 	clock_t start_vec = clock();
 	mergeInsertSort(vec);  // Ensure this function is properly defined in your class
 	clock_t end_vec = clock();
-	double vecTime = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC;
+	double vecTime = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC * 1000000.0;
 
 	// Display after vector sorting
 	std::cout << "After (Vector): ";
@@ -96,6 +98,6 @@ void PmergeMe::sortAndDisplayResult()
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
-	std::cout << "Time to process with std::vector: " << vecTime << " seconds" << std::endl;
+	std::cout << "Time to process with std::vector: " << vecTime << " micro seconds" << std::endl;
 }
 

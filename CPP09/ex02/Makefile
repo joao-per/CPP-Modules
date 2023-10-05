@@ -50,6 +50,18 @@ fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(RED)- PmergeMe Removed.$(DEFAULT)"
 
+test100:			$(NAME)	
+					$(eval ARG = $(shell shuf -i 0-5000 -n 100))
+					@./PmergeMe $(ARG) | grep "After"
+
+test500:			$(NAME)	
+					$(eval ARG = $(shell shuf -i 0-5000 -n 500))
+					@./PmergeMe $(ARG) | grep "After"
+
+test3000:			$(NAME)	
+					$(eval ARG = $(shell shuf -i 0-10000 -n 3000))
+					@./PmergeMe $(ARG) | grep "After"
+
 re: clean all
 
 .PHONY: all clean fclean re
